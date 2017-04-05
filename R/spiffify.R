@@ -1,12 +1,17 @@
 #' \code{spiffify} adds  some formatting to a ggplot to make it easier to read.
 #'
-#' @param basesize The basesize of for ggplot. Defaults to 17.
+#' @param base_size The base size of for ggplot. Defaults to 17.
 #' @param lineheight  The lineheight for ggplot. Defaults to .8.
 #' @param face Font face. Defaults to bold.
 #' @keywords ggplot
+#' @import ggplot2
 #' @export
 #' @examples
-#' ggplot() + spiffify()
+#' library(languageR)
+#' library(ggplot2)
+#' lexdec.rt <- lexdec[lexdec$Correct=="correct",]
+#' ggplot(lexdec.rt, aes(x=Frequency, y=RT))+geom_smooth()+geom_point(alpha=.1) + ggtitle("Freqyency by RT")
+#' ggplot(lexdec.rt, aes(x=Frequency, y=RT))+geom_smooth()+geom_point(alpha=.1) + ggtitle("Freqyency by RT") + spiffify()
 
 spiffify <- function(base_size = 17, lineheight=.8, face="bold"){
 ggplot2::theme_grey(base_size = base_size) +

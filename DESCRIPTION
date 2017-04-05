@@ -5,10 +5,10 @@ Version: 0.0.1
 Author: Jason W. Gullifer
 Maintainer: The package maintainer <jason.gullifer@gmail.com>
 Description: Contains a several convenience functions I use regularly for data processing.
-License: GNU General Public License (GPL)
+License: GPL
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 5.0.1
-Requires: dplyr, lazyload
-Suggests: knitr, rmarkdown
+Imports: dplyr, lazyeval, magrittr, ggplot2
+Suggests: knitr, rmarkdown, languageR
 VignetteBuilder: knitr

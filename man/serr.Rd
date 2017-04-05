@@ -2,25 +2,40 @@
 % Please edit documentation in R/serr.R
 \name{serr}
 \alias{serr}
-\title{\code{serr} computes the standard error of the mean over an id variable}
+\alias{serr_}
+\title{Computes the standard error of the mean over an id variable.}
 \usage{
 serr(data, dv, id, ...)
+
+serr_(data, dv, id, grouping)
 }
 \arguments{
 \item{data}{A dataframe or datatable}
 
-\item{dv}{Variable representing your dependent variable. Use the bare variable name.}
+\item{dv}{Variable representing your dependent variable. Use the bare variable name when using \code{serr}.}
 
-\item{id}{Variable representing an id variable (e.g., "subject" or "item"). Use the bare variable name.}
+\item{id}{Variable representing an id variable (e.g., "subject" or "item"). Use the bare variable name when using \code{serr}.}
 
-\item{...}{Variables to group by (e.g., conditions). Use bare variable names spearated by commas}
+\item{...}{Variables to group by (e.g., conditions) when using \code{serr}. Use bare variable names spearated by commas.}
+
+\item{grouping}{Character vector of the set of variables to group by (e.g.,
+conditions) when using \code{serr_}.}
 }
 \description{
-This function will compute the standard error of the mean given a dataset, a
-dependent variable, an id variable, and a set of grouping variables.
+This function will compute the standard error of the mean given a raw
+(trial-by-trial) dataset, a dependent variable of interest, an id variable
+(e.g., "subjects" or "items"), and a set of grouping variables (e.g.,
+"condition").\cr\cr Two versions of the function are provided. The standard \code{serr} function
+will accept \code{dplyr}-like arguments (without quotes) for column names. The
+other \code{serr_} function works on quoted strings, and all grouping variables
+must be supplied as a vector of characters to the \code{grouping} argument.
 }
 \examples{
-serr(data, rt, subject, blockcode2, WordType)
+library(languageR)
+lexdec.rt <- lexdec[lexdec$Correct=="correct",]
+serr_summary.rt <- serr(data = lexdec.rt, dv = RT, id = Subject, Class, Complex)
+print(serr_summary.rt)
+
 }
 \keyword{error}
 \keyword{grouped}

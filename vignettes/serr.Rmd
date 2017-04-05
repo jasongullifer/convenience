@@ -1,10 +1,10 @@
 ---
-title: "lexdec vignette"
+title: "serr vignette with lexdec dataset"
 author: "Jason W. Gullifer"
 date: '2017-04-04'
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{lexdec vignette}
+  %\VignetteIndexEntry{serr vignette with lexdec dataset}
   %\VignetteEngine{knitr::rmarkdown}
   \usepackage[utf8]{inputenc}
 ---
@@ -16,7 +16,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ## Load the required packages
 ```{r library}
 library(languageR)
-library(serr)
+library(convenience)
 library(ggplot2)
 library(dplyr)
 ```
@@ -38,8 +38,11 @@ lexdec.acc$accuracy<-ifelse(lexdec.acc$Correct == "correct",1, 0)
 ## Compute standard error
 Use the serr function to compute the mean, standard error of the mean, and 1SEM (68%) confidence intervals
 ```{r serr}
-serr_summary.rt <- serr(data = lexdec.rt, dv = RT, id = Subject, Class, Complex)
-serr_summary.acc <- serr(data = lexdec.acc, dv = accuracy, id = Subject, Class, Complex)
+serr_summary.rt <- serr(data = lexdec.rt, dv = RT, id = Subject, Class, Complex, NativeLanguage)
+print(serr_summary.rt)
+
+serr_summary.acc <- serr(data = lexdec.acc, dv = accuracy, id = Subject, Class, Complex,NativeLanguage)
+print(serr_summary.acc)
 ```
 
 ## Plotting

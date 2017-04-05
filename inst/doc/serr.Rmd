@@ -1,0 +1,67 @@
+---
+title: "serr vignette with lexdec dataset"
+author: "Jason W. Gullifer"
+date: '2017-04-04'
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{serr vignette with lexdec dataset}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Load the required packages
+```{r library}
+library(languageR)
+library(convenience)
+library(ggplot2)
+library(dplyr)
+```
+
+## Load lexdec dataset
+```{r lexdec}
+data(lexdec)
+```
+
+## Data prep
+Correct trials only for reaction time analysis. All trials for accuracy analysis. Convert the accuracy column to numeric.
+```{r dataprep}
+lexdec.rt <- lexdec[lexdec$Correct=="correct",]
+lexdec.acc <- lexdec
+
+lexdec.acc$accuracy<-ifelse(lexdec.acc$Correct == "correct",1, 0)
+```
+
+## Compute standard error
+Use the serr function to compute the mean, standard error of the mean, and 1SEM (68%) confidence intervals
+```{r serr}
+serr_summary.rt <- serr(data = lexdec.rt, dv = RT, id = Subject, Class, Complex, NativeLanguage)
+print(serr_summary.rt)
+
+serr_summary.acc <- serr(data = lexdec.acc, dv = accuracy, id = Subject, Class, Complex,NativeLanguage)
+print(serr_summary.acc)
+```
+
+## Plotting
+Plot the resulting data with 95% confidence intervals (mean $\pm$ 1.96 * SERR). You could also set ymin and ymax to upper and lower if you want error bars representing 1 standard error of the mean. 
+```{r plot}
+ggplot(serr_summary.rt, aes(x = Class, y = mean_RT, ymin = mean_RT - 1.96 * SERR, ymax = mean_RT + 1.96 * SERR)) + 
+  facet_wrap(~Complex) + geom_pointrange()
+
+ggplot(serr_summary.acc, aes(x = Class, y = mean_accuracy, ymin = mean_accuracy - 1.96 * SERR, ymax = mean_accuracy + 1.96 * SERR)) + 
+  facet_wrap(~Complex) + geom_pointrange()
+
+```
+
+You could also set ymin and ymax to lower and upper if you want error bars representing 1 standard error of the mean. 
+```{r plot_1serr}
+ggplot(serr_summary.rt, aes(x = Class, y = mean_RT, ymin = lower, ymax = upper)) + 
+  facet_wrap(~Complex) + geom_pointrange()
+
+ggplot(serr_summary.acc, aes(x = Class, y = mean_accuracy, ymin = lower, ymax = upper)) + 
+  facet_wrap(~Complex) + geom_pointrange()
+
+```
