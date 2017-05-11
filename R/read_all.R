@@ -34,7 +34,7 @@ read_all <- function(dir="./", type="csv", euro=F, encoding="UTF-8"){
     cur_file <- read.delim(paste0(dir,file), stringsAsFactors = F, encoding=encoding, sep=sep, dec=dec) #read the file
     data <- dplyr::bind_rows(data,cur_file) #combine the current datset with the previous datasets
   }
-
+  print(paste("Read", length(files), "files from",dir))
   return(data)
 }
 
