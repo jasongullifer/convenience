@@ -4,7 +4,8 @@
 \alias{spiffify}
 \title{\code{spiffify} adds  some formatting to a ggplot to make it easier to read.}
 \usage{
-spiffify(base_size = 17, lineheight = 0.8, face = "bold")
+spiffify(base_size = 17, lineheight = 0.8, face = "bold", angle = 45,
+  vjust, hjust = 0.9)
 }
 \arguments{
 \item{base_size}{The base size of for ggplot. Defaults to 17.}
@@ -24,4 +25,3 @@ ggplot(lexdec.rt, aes(x=Frequency, y=RT))+geom_smooth()+geom_point(alpha=.1) + g
 ggplot(lexdec.rt, aes(x=Frequency, y=RT))+geom_smooth()+geom_point(alpha=.1) + ggtitle("Freqyency by RT") + spiffify()
 }
 \keyword{ggplot}
-

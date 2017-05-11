@@ -8,7 +8,7 @@ Description: Contains a several convenience functions I use regularly for data p
 License: GPL
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 5.0.1
-Imports: dplyr, lazyeval, magrittr, ggplot2
+RoxygenNote: 6.0.1
+Imports: dplyr, lazyeval, magrittr, ggplot2, stringr
 Suggests: knitr, rmarkdown, languageR
 VignetteBuilder: knitr
