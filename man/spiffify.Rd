@@ -20,8 +20,14 @@ spiffify(base_size = 17, lineheight = 0.8, face = "bold", angle = 45,
 \examples{
 library(languageR)
 library(ggplot2)
+
 lexdec.rt <- lexdec[lexdec$Correct=="correct",]
-ggplot(lexdec.rt, aes(x=Frequency, y=RT))+geom_smooth()+geom_point(alpha=.1) + ggtitle("Freqyency by RT")
-ggplot(lexdec.rt, aes(x=Frequency, y=RT))+geom_smooth()+geom_point(alpha=.1) + ggtitle("Freqyency by RT") + spiffify()
+
+ggplot(lexdec.rt, aes(x=Frequency, y=RT)) + geom_smooth() +
+  geom_point(alpha=.1) + ggtitle("Freqyency by RT")
+
+ggplot(lexdec.rt, aes(x=Frequency, y=RT)) + geom_smooth() +
+  geom_point(alpha=.1) + ggtitle("Freqyency by RT") + spiffify()
 }
 \keyword{ggplot}
+

@@ -12,17 +12,13 @@ serr_(data, dv, id, grouping, confint_serr = 1)
 \arguments{
 \item{data}{A dataframe or datatable}
 
-\item{dv}{Variable representing your dependent variable. Use the bare
-variable name when using \code{serr}.}
+\item{dv}{Variable representing your dependent variable. Use the bare variable name when using \code{serr}.}
 
-\item{id}{Variable representing an id variable (e.g., "subject" or "item").
-Use the bare variable name when using \code{serr}.}
+\item{id}{Variable representing an id variable (e.g., "subject" or "item"). Use the bare variable name when using \code{serr}.}
 
-\item{...}{Variables to group by (e.g., conditions) when using \code{serr}.
-Use bare variable names spearated by commas.}
+\item{...}{Variables to group by (e.g., conditions) when using \code{serr}. Use bare variable names separated by commas.}
 
-\item{confint_serr}{Size (in standard errors) for confidence intervals.
-Default confidence intervals are 1 SERR. To get 95% confidence intervals, enter 1.96.}
+\item{confint_serr}{Size (in standard errors) for confidence intervals. Default confidence intervals are 1 SERR. To get 95\% confidence intervals, enter 1.96.}
 
 \item{grouping}{Character vector of the set of variables to group by (e.g.,
 conditions) when using \code{serr_}.}
@@ -51,3 +47,4 @@ print(serr_summary.rt)
 \keyword{operations}
 \keyword{standard}
 \keyword{the}
+
