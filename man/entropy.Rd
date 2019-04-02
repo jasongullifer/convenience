@@ -12,7 +12,7 @@ entropy(x, base = 2)
 \item{base}{Base of the logarithm. Shannon Entropy uses base 2. Other common bases are e (natural) and 10 (hartley).}
 }
 \description{
-Given a vector of discrete probabilities, this function will output the Shannon Entropy (a measure of uncertainty)
+Note: this package is deprecated. Please use \code{languageEntropy::entropy} instead. Given a vector of discrete probabilities, this function will output the Shannon Entropy (a measure of uncertainty)
 }
 \examples{
 prob_table <- data.frame(event=c("A","B"), prob=c(.25,.75))
@@ -20,4 +20,3 @@ entropy(prob_table$prob)
 }
 \keyword{entropy}
 \keyword{shannon}
-

@@ -18,4 +18,3 @@ read_all(dir = "./", type = "csv", euro = F, encoding = "UTF-8")
 \description{
 Read all files in a given directory
 }
-

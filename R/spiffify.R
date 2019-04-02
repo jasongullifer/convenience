@@ -18,7 +18,7 @@
 #' ggplot(lexdec.rt, aes(x=Frequency, y=RT)) + geom_smooth() +
 #'   geom_point(alpha=.1) + ggtitle("Freqyency by RT") + spiffify()
 
-spiffify <- function(base_size = 17, lineheight=.8, face="bold",angle=45, vjust, hjust=.9){
+spiffify <- function(base_size = 17, lineheight=.8, face="bold",angle=45, vjust=1, hjust=1){
   ggplot2::theme_grey(base_size = base_size) +
     ggplot2::theme(plot.title = element_text(size = rel(1),  lineheight=lineheight, face=face, hjust = 0),
           axis.text.x = element_text(angle = angle, vjust = vjust,  hjust = hjust, size = rel(1)))

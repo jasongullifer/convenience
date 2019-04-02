@@ -5,9 +5,10 @@
 \alias{serr_}
 \title{Computes the standard error of the mean over an id variable.}
 \usage{
-serr(data, dv, id, ..., confint_serr = 1)
+serr(data, dv, id, ..., confint_serr = 1, return_interim_data = F)
 
-serr_(data, dv, id, grouping, confint_serr = 1)
+serr_(data, dv, id, grouping, confint_serr = 1,
+  return_interim_data = F)
 }
 \arguments{
 \item{data}{A dataframe or datatable}
@@ -20,11 +21,13 @@ serr_(data, dv, id, grouping, confint_serr = 1)
 
 \item{confint_serr}{Size (in standard errors) for confidence intervals. Default confidence intervals are 1 SERR. To get 95\% confidence intervals, enter 1.96.}
 
+\item{return_interim_data}{TRUE or FALSE, whether to return the interim dataset (e.g., subject-level data) as well as the grand mean dataset (via a list object). By default (FALSE), only the grand mean dataset is returned.}
+
 \item{grouping}{Character vector of the set of variables to group by (e.g.,
 conditions) when using \code{serr_}.}
 }
 \description{
-This function will compute the standard error of the mean given a raw
+Note: this package is deprecated. Please use \code{sem} instead. This function will compute the standard error of the mean given a raw
 (trial-by-trial) dataset, a dependent variable of interest, an id variable
 (e.g., "subjects" or "items"), and a set of grouping variables (e.g.,
 "condition"). It also outputs several statistics: SD, N, and confidence
@@ -47,4 +50,3 @@ print(serr_summary.rt)
 \keyword{operations}
 \keyword{standard}
 \keyword{the}
-

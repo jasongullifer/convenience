@@ -1,6 +1,6 @@
 #' Computes Shannon Entropy
 #'
-#' Given a vector of discrete probabilities, this function will output the Shannon Entropy (a measure of uncertainty)
+#' Note: this package is deprecated. Please use \code{languageEntropy::entropy} instead. Given a vector of discrete probabilities, this function will output the Shannon Entropy (a measure of uncertainty)
 #'
 
 #' @param x A vector of discrete probabilities
@@ -11,6 +11,7 @@
 #' prob_table <- data.frame(event=c("A","B"), prob=c(.25,.75))
 #' entropy(prob_table$prob)
 entropy <- function(x,base=2){
+  .Deprecated("languageEntropy::entropy")
   entr <- 0 # total entropy
 
   if(sum(x,na.rm=T) == 0){ # if the data is all 0s or NAs, then return NA

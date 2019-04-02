@@ -26,4 +26,3 @@ the corresponding questions (i.e., the answer for Q2).
 \keyword{monkey}
 \keyword{piping}
 \keyword{survey}
-

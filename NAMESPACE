@@ -2,6 +2,8 @@
 
 export(entropy)
 export(read_all)
+export(sem)
+export(sem_)
 export(serr)
 export(serr_)
 export(spiffify)
