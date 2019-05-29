@@ -32,7 +32,7 @@ read_all <- function(dir="./", type="csv", euro=F, encoding="UTF-8"){
   files <- dir(dir,filetype) # get a list of the csv files
   for (file in files){ #for each file
     cur_file <- read.delim(paste0(dir,file), stringsAsFactors = F, encoding=encoding, sep=sep, dec=dec) #read the file
-    data <- dplyr::bind_rows(data,cur_file) #combine the current datset with the previous datasets
+    data <- plyr::rbind.fill(data,cur_file) #combine the current datset with the previous datasets
   }
   print(paste("Read", length(files), "files from",dir))
   return(data)
