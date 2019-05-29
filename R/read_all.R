@@ -5,7 +5,7 @@
 #' @param euro Specify TRUE/FALSE whether the file format is european (e.g., Euro decimals are commas). Defaults to FALSE.
 #' @param encoding Specify file encoding. Defaults to "UTF-8". Excel typically generates "latin1" files.
 #'
-#' @importFrom dplyr "bind_rows"
+#' @importFrom plyr "rbind.fill"
 #' @importFrom utils "read.delim"
 #' @export
 read_all <- function(dir="./", type="csv", euro=F, encoding="UTF-8"){
